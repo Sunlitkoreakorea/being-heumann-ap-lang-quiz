@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Being Heumann — AP Lang Style Practice</title>
+<meta name="description" content="50 AP English Language &amp; Composition style multiple-choice questions on the Prologue through Chapter 3 of Judith Heumann's Being Heumann.">
+<style>
+  :root{
+    --bg:#f7f4ef;
+    --panel:#ffffff;
+    --ink:#1e1b16;
+    --ink-soft:#4a453d;
+    --line:#e2dcd0;
+    --accent:#8a3324;
+    --accent-soft:#c8503c;
+    --gold:#a9822f;
+    --correct:#2f6d3d;
+    --correct-bg:#e7f3e8;
+    --wrong:#a13327;
+    --wrong-bg:#fbe9e6;
+    --chip-bg:#efe7d8;
+    --shadow: 0 1px 2px rgba(30,27,22,.06), 0 8px 24px rgba(30,27,22,.06);
+    --radius: 14px;
+    --serif: "Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,"Nanum Myeongjo",serif;
+    --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#171410;
+      --panel:#211d17;
+      --ink:#efe9dd;
+      --ink-soft:#c9c1b1;
+      --line:#3a342a;
+      --accent:#e0836b;
+      --accent-soft:#e0836b;
+      --gold:#d8b25c;
+      --correct:#7fce93;
+      --correct-bg:#173824;
+      --wrong:#ef9186;
+      --wrong-bg:#3a1c18;
+      --chip-bg:#2c2619;
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 28px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#171410;
+    --panel:#211d17;
+    --ink:#efe9dd;
+    --ink-soft:#c9c1b1;
+    --line:#3a342a;
+    --accent:#e0836b;
+    --accent-soft:#e0836b;
+    --gold:#d8b25c;
+    --correct:#7fce93;
+    --correct-bg:#173824;
+    --wrong:#ef9186;
+    --wrong-bg:#3a1c18;
+    --chip-bg:#2c2619;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 28px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:64px;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:28px 18px 0;
+  }
+  header.top{
+    text-align:center;
+    margin-bottom:22px;
+  }
+  .eyebrow{
+    font-family:var(--sans);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:11.5px;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(26px,5vw,36px);
+    margin:0 0 6px;
+    letter-spacing:.01em;
+  }
+  .subtitle{
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:24px;
+    margin-bottom:18px;
+  }
+  /* ---------- Start screen ---------- */
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:20px 0;
+  }
+  .stat{
+    text-align:center;
+    padding:14px 6px;
+    border-radius:10px;
+    background:var(--chip-bg);
+  }
+  .stat b{
+    display:block;
+    font-family:var(--serif);
+    font-size:22px;
+    color:var(--accent);
+  }
+  .stat span{
+    font-size:11px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .opt-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 4px;
+    border-top:1px solid var(--line);
+  }
+  .opt-row:first-of-type{border-top:none;}
+  .opt-label{font-size:14.5px;}
+  .opt-label small{display:block;color:var(--ink-soft);font-size:12px;margin-top:2px;font-weight:400;}
+  .switch{
+    position:relative;width:44px;height:26px;flex:0 0 auto;
+  }
+  .switch input{opacity:0;width:0;height:0;}
+  .slider{
+    position:absolute;inset:0;background:var(--line);border-radius:999px;cursor:pointer;transition:.15s;
+  }
+  .slider::before{
+    content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;
+    background:var(--panel);border-radius:50%;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.25);
+  }
+  input:checked + .slider{background:var(--accent);}
+  input:checked + .slider::before{transform:translateX(18px);}
+  .section-pick{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;
+  }
+  .chip{
+    border:1px solid var(--line);
+    background:var(--chip-bg);
+    color:var(--ink);
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:12.5px;
+    cursor:pointer;
+    user-select:none;
+    transition:.12s;
+  }
+  .chip.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+  }
+  button.primary{
+    display:block;
+    width:100%;
+    margin-top:18px;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:15px 18px;
+    border-radius:10px;
+    font-size:15.5px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:var(--sans);
+    letter-spacing:.01em;
+    transition:.12s;
+  }
+  button.primary:hover{background:var(--accent-soft);}
+  button.primary:disabled{opacity:.45;cursor:not-allowed;}
+  button.ghost{
+    display:block;
+    width:100%;
+    margin-top:10px;
+    background:transparent;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:12px 18px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    font-family:var(--sans);
+  }
+  .theme-toggle{
+    position:fixed;top:14px;right:14px;
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--panel);
+    color:var(--ink);
+    cursor:pointer;
+    font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow);
+    z-index:20;
+  }
+
+  /* ---------- Quiz screen ---------- */
+  .quiz-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .progress-outer{
+    height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:18px;
+  }
+  .progress-inner{
+    height:100%;background:linear-gradient(90deg,var(--gold),var(--accent));
+    width:0%;transition:width .25s ease;
+  }
+  .chapter-tag{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--accent);
+    background:var(--chip-bg);
+    padding:4px 10px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .stem{
+    font-family:var(--serif);
+    font-size:19px;
+    line-height:1.5;
+    margin:0 0 18px;
+  }
+  .choice{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    width:100%;
+    text-align:left;
+    background:var(--bg);
+    border:1.5px solid var(--line);
+    border-radius:11px;
+    padding:13px 14px;
+    margin-bottom:10px;
+    cursor:pointer;
+    font-family:var(--sans);
+    font-size:14.5px;
+    color:var(--ink);
+    transition:.12s;
+  }
+  .choice:hover{border-color:var(--accent-soft);}
+  .choice .letter{
+    flex:0 0 auto;
+    width:24px;height:24px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;color:var(--ink-soft);
+  }
+  .choice.selected{border-color:var(--accent);}
+  .choice.selected .letter{border-color:var(--accent);color:var(--accent);}
+  .choice.correct{
+    border-color:var(--correct);background:var(--correct-bg);
+  }
+  .choice.correct .letter{border-color:var(--correct);color:var(--correct);background:transparent;}
+  .choice.wrong{
+    border-color:var(--wrong);background:var(--wrong-bg);
+  }
+  .choice.wrong .letter{border-color:var(--wrong);color:var(--wrong);}
+  .choice.disabled{cursor:default;}
+  .choice.dim{opacity:.55;}
+  .explain{
+    margin-top:6px;
+    padding:14px 16px;
+    border-radius:11px;
+    background:var(--chip-bg);
+    font-size:13.8px;
+    color:var(--ink-soft);
+    display:none;
+  }
+  .explain.show{display:block;}
+  .explain b{color:var(--ink);}
+  .nav-row{
+    display:flex;gap:10px;margin-top:16px;
+  }
+  .nav-row button{flex:1;}
+  button.secondary{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--ink);
+    padding:13px 16px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:14.5px;
+    cursor:pointer;
+    font-family:var(--sans);
+  }
+  button.secondary:disabled{opacity:.35;cursor:not-allowed;}
+
+  /* ---------- Results ---------- */
+  .score-hero{text-align:center;padding:10px 0 6px;}
+  .score-num{
+    font-family:var(--serif);
+    font-size:56px;
+    color:var(--accent);
+    line-height:1;
+  }
+  .score-sub{color:var(--ink-soft);font-size:14px;margin-top:4px;}
+  .bar-row{margin:6px 0;}
+  .bar-label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-soft);margin-bottom:4px;}
+  .bar-track{height:9px;background:var(--line);border-radius:999px;overflow:hidden;}
+  .bar-fill{height:100%;background:var(--gold);border-radius:999px;}
+  .review-item{
+    border-top:1px solid var(--line);
+    padding:16px 0;
+  }
+  .review-item:first-child{border-top:none;}
+  .review-q{font-family:var(--serif);font-size:16px;margin:0 0 10px;}
+  .review-tag{
+    font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;margin-right:8px;
+    display:inline-block;
+  }
+  .review-tag.ok{color:var(--correct);background:var(--correct-bg);}
+  .review-tag.no{color:var(--wrong);background:var(--wrong-bg);}
+  .review-ans{font-size:13.5px;margin:4px 0;color:var(--ink-soft);}
+  .review-ans b{color:var(--ink);}
+  .review-explain{font-size:13.5px;color:var(--ink-soft);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);}
+  .filter-row{display:flex;gap:8px;margin-bottom:6px;}
+
+  footer{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:12px;
+    padding:26px 18px 10px;
+  }
+  .hidden{display:none !important;}
+  @media (max-width:480px){
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+    .stem{font-size:17.5px;}
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle light/dark" aria-label="Toggle theme">◐</button>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">AP English Language &amp; Composition</div>
+    <h1>Being Heumann</h1>
+    <p class="subtitle">Rhetorical-analysis style multiple-choice practice on the Prologue through Chapter&nbsp;3 of Judith Heumann's memoir.</p>
+  </header>
+
+  <!-- START SCREEN -->
+  <section id="startScreen" class="card">
+    <div class="stat-row">
+      <div class="stat"><b>50</b><span>Questions</span></div>
+      <div class="stat"><b>4</b><span>Sections</span></div>
+      <div class="stat"><b>A–D</b><span>Format</span></div>
+      <div class="stat"><b>~35</b><span>Minutes</span></div>
+    </div>
+
+    <div class="opt-row">
+      <div class="opt-label">Instant feedback<small>Reveal the correct answer &amp; explanation right after each question</small></div>
+      <label class="switch"><input type="checkbox" id="instantFeedback" checked><span class="slider"></span></label>
+    </div>
+    <div class="opt-row">
+      <div class="opt-label">Shuffle questions<small>Randomize order within your selected sections</small></div>
+      <label class="switch"><input type="checkbox" id="shuffleQ"><span class="slider"></span></label>
+    </div>
+    <div class="opt-row">
+      <div class="opt-label">Shuffle answer choices<small>Randomize A–D positions per question</small></div>
+      <label class="switch"><input type="checkbox" id="shuffleC"><span class="slider"></span></label>
+    </div>
+
+    <div class="opt-row" style="display:block;">
+      <div class="opt-label" style="margin-bottom:8px;">Sections to include</div>
+      <div class="section-pick" id="sectionPick"></div>
+    </div>
+
+    <button class="primary" id="startBtn">Start Practice</button>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quizScreen" class="card hidden">
+    <div class="quiz-header">
+      <span id="qCounter">Question 1 of 50</span>
+      <span id="qScoreLive">Score: 0</span>
+    </div>
+    <div class="progress-outer"><div class="progress-inner" id="progressBar"></div></div>
+    <div class="chapter-tag" id="chapterTag">Prologue</div>
+    <p class="stem" id="stemText"></p>
+    <div id="choicesWrap"></div>
+    <div class="explain" id="explainBox"></div>
+    <div class="nav-row">
+      <button class="secondary" id="prevBtn">← Previous</button>
+      <button class="primary" id="nextBtn" style="margin-top:0;" disabled>Next →</button>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section id="resultsScreen" class="card hidden">
+    <div class="score-hero">
+      <div class="eyebrow">Results</div>
+      <div class="score-num" id="scorePct">0%</div>
+      <div class="score-sub" id="scoreDetail">0 of 50 correct</div>
+    </div>
+    <div id="barChart" style="margin:22px 0 6px;"></div>
+    <button class="primary" id="retakeBtn">Retake This Set</button>
+    <button class="ghost" id="restartBtn">Back to Setup</button>
+  </section>
+
+  <section id="reviewScreen" class="card hidden">
+    <div class="eyebrow" style="margin-bottom:10px;">Full Review</div>
+    <div class="filter-row">
+      <span class="chip active" data-filter="all">All 50</span>
+      <span class="chip" data-filter="wrong">Missed only</span>
+      <span class="chip" data-filter="correct">Correct only</span>
+    </div>
+    <div id="reviewList"></div>
+  </section>
+
+  <footer>Practice questions written for independent AP Lang study · not an official College Board product</footer>
+</div>
+
+<script>
+/* =========================================================
+   DATA — 50 AP Lang–style questions on Being Heumann
+   Prologue (6) · Ch.1 The Butterfly (16) ·
+   Ch.2 Insubordinate (14) · Ch.3 To Fight or Not to Fight (14)
+   ========================================================= */
+const QUESTIONS = [
+// ---------------- PROLOGUE (6) ----------------
+{ch:"Prologue", stem:"The Prologue opens with the line “I never wished I didn’t have a disability.” Which rhetorical effect does this opening sentence’s structure most likely create?",
+ choices:[
+  "It uses a double-negative construction to assert a straightforward affirmation, immediately establishing the narrator’s self-acceptance and unsettling the reader’s assumptions about disability memoirs.",
+  "It uses sarcasm to mock readers who feel pity toward disabled people.",
+  "It poses a rhetorical question that invites the audience to answer for themselves.",
+  "It relies on formal, technical medical vocabulary to establish clinical authority."
+ ], answer:0,
+ explain:"The litotes-like double negative (\"never wished I didn't\") affirms acceptance rather than negation, defying the expectation that a memoir about disability would open with regret."},
+
+{ch:"Prologue", stem:"When recounting the doctor’s advice to institutionalize her, the narrator immediately follows the quoted directive with a calm, detached explanation of the doctor’s sincere intentions. This juxtaposition primarily serves to:",
+ choices:[
+  "Excuse the doctor’s recommendation as entirely justified given the medical knowledge of the era.",
+  "Highlight the unsettling gap between the era’s unquestioned “common sense” and its devastating human consequences.",
+  "Demonstrate the narrator’s anger toward her parents for questioning a medical expert.",
+  "Provide comic relief before a more serious historical discussion begins."
+ ], answer:1,
+ explain:"By calmly noting that the doctor \"sincerely believed\" this was best, juxtaposed against the horrifying implications, the author underscores how normalized institutionalization was — making the injustice feel more chilling, not less."},
+
+{ch:"Prologue", stem:"The Prologue draws an extended historical parallel between American institutionalization practices and Nazi Germany’s treatment of disabled children. What is the primary rhetorical function of this comparison?",
+ choices:[
+  "To argue that the American doctor who advised institutionalization was himself a Nazi sympathizer.",
+  "To provide an unrelated aside on European history for context.",
+  "To heighten the reader’s sense of the stakes attached to how societies treat disability, and to explain the origin of her parents’ resistance to unquestioned authority.",
+  "To shift the memoir’s focus permanently away from the narrator’s personal story."
+ ], answer:2,
+ explain:"The comparison establishes the extreme end of a continuum in how societies devalue disabled lives, contextualizing why her parents refused to blindly trust authority figures."},
+
+{ch:"Prologue", stem:"The sentence “Five thousand children were murdered in these institutions” is notably short and unadorned compared to the surrounding paragraphs. This stylistic choice primarily achieves what effect?",
+ choices:[
+  "It signals that the author had little more information to share on the subject.",
+  "Its blunt, unembellished syntax forces the fact to stand alone, amplifying its emotional and moral weight.",
+  "It functions as a minor transitional sentence with little rhetorical significance.",
+  "It uses hyperbole to exaggerate a historical event for dramatic effect."
+ ], answer:1,
+ explain:"Short, declarative sentences isolated within a paragraph draw attention through contrast — the plainness of the statement makes the horror more stark than embellished language would."},
+
+{ch:"Prologue", stem:"Discussing why her parents refused to institutionalize her, the narrator explains that they had lived through the Holocaust and consequently never accepted anything told to them “at face value.” How does this characterization of her parents primarily function within the Prologue?",
+ choices:[
+  "It criticizes her parents for being irrationally suspicious of authority figures.",
+  "It establishes the origin of the skepticism toward institutional authority that will recur throughout the narrator’s own life story.",
+  "It is included only as tangential biographical detail with no bearing on the rest of the memoir.",
+  "It argues that only Holocaust survivors are capable of recognizing injustice."
+ ], answer:1,
+ explain:"This passage sets up a thematic throughline — the inherited instinct to question authority — that the narrator will enact herself in later chapters, particularly in her fight for a teaching license."},
+
+{ch:"Prologue", stem:"The Prologue closes by alluding to events like taking over a federal building and confronting the New York City Board of Education — events that occur later in the narrator’s life and are not yet explained. What purpose does this closing technique serve?",
+ choices:[
+  "It intentionally confuses the reader with no narrative payoff.",
+  "It functions as a flash-forward that frames the ensuing chapters as building blocks toward the narrator’s future activism, orienting the reader toward the larger arc.",
+  "It suggests the memoir will not actually discuss these events in later chapters.",
+  "It is a random aside unrelated to the memoir’s overall structure."
+ ], answer:1,
+ explain:"This is a classic framing device: alluding to significant future events while the following chapters chronologically build the reader toward them."},
+
+// ---------------- CHAPTER 1: THE BUTTERFLY (16) ----------------
+{ch:"Ch. 1 — The Butterfly", stem:"Chapter 1 opens: “Some people say that what I did changed the world. But really, I simply refused to accept what I was told about who I could be.” How does the second sentence function in relation to the first?",
+ choices:[
+  "It contradicts the first sentence entirely, denying any personal agency in the events described.",
+  "It reframes a grand, external claim into a more modest, personal account of individual resistance, establishing a humble narrative ethos.",
+  "It shifts the subject of the chapter away from the narrator entirely.",
+  "It uses false modesty to conceal the narrator’s true motives from the reader."
+ ], answer:1,
+ explain:"The narrator downplays the epic framing (\"changed the world\") in favor of a modest, relatable act of resistance — building credibility (ethos) through humility."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"The narrator insists her story “wasn’t actually an ‘I,’ it was a ‘we’” and follows with a list of parallel phrases beginning with the word “many.” What rhetorical device is most prominent here, and what effect does it create?",
+ choices:[
+  "Antithesis, which contrasts sharply opposing ideas to create tension.",
+  "Anaphora — the repetition of “many” at the start of successive phrases — which emphasizes the collaborative, collective nature of the movement she describes.",
+  "Onomatopoeia, imitating the literal sounds of a movement.",
+  "Chiasmus, reversing grammatical structure for balance."
+ ], answer:1,
+ explain:"The repeated \"many\" beginning each phrase is anaphora, reinforcing that credit belongs to a large collective rather than to a single individual."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"In describing 1953, the narrator juxtaposes national symbols of postwar prosperity with the “discontent that simmered below the surface” among excluded groups. What is the primary purpose of this juxtaposition?",
+ choices:[
+  "To argue that the 1950s were a uniformly miserable decade for every American.",
+  "To contrast a comfortable popular narrative of the era with the hidden reality experienced by those excluded from it, foreshadowing her own exclusion.",
+  "To provide unrelated trivia about mid-century American pop culture.",
+  "To prove that entertainment figures were more historically significant than political leaders."
+ ], answer:1,
+ explain:"This contrast sets up the chapter’s broader argument: prosperity narratives obscure the systemic exclusion faced by disabled people and other marginalized groups."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"The narrator writes that although her life “wasn’t marked with the little ‘Whites Only’ signs” that signaled Southern segregation, it was nonetheless “also a segregated one.” What is the rhetorical effect of this comparison?",
+ choices:[
+  "It equates her exact experience with that of Black Americans under Jim Crow, drawing no distinction whatsoever.",
+  "It draws a careful analogy that helps readers grasp the systemic nature of disability discrimination by connecting it to a more widely recognized form of segregation.",
+  "It dismisses the historical significance of racial segregation.",
+  "It is a coincidental phrase that carries no rhetorical weight."
+ ], answer:1,
+ explain:"By noting the absence of literal signage while asserting the presence of segregation, the narrator draws a deliberate, qualified analogy that helps an unfamiliar injustice register through a familiar historical framework."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"Describing a tiny incline in the sidewalk near her home as a major obstacle, the narrator elsewhere calls an ordinary curb “the Great Wall of China.” This comparison is best described as:",
+ choices:[
+  "Understatement, meant to minimize the size of the obstacle.",
+  "A hyperbolic metaphor that conveys how insurmountable a small physical barrier felt from a child’s perspective.",
+  "A literal historical reference carrying no figurative meaning.",
+  "Verbal irony intended purely for comic effect."
+ ], answer:1,
+ explain:"A curb is nowhere near the scale of the Great Wall, but the exaggeration captures the real magnitude of the barrier as experienced by a child unable to cross it independently."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"When a school principal refuses to enroll young Judy in kindergarten, he explains that she is “a fire hazard.” What does this bureaucratic phrasing primarily accomplish?",
+ choices:[
+  "It offers an entirely honest, purely safety-based rationale with no discriminatory undertone.",
+  "It reveals how discriminatory exclusion can be cloaked in seemingly neutral, procedural language, masking prejudice as policy.",
+  "It demonstrates the principal’s genuine affection for Judy.",
+  "It has no bearing on the memoir’s larger argument about discrimination."
+ ], answer:1,
+ explain:"Framing exclusion in terms of \"safety\" or procedure rather than prejudice is a pattern the narrator identifies throughout the book as a way of disguising discrimination as reasonable policy."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"The narrator describes her mother’s resilience through short, parallel sentences built around a common idiom about not dwelling on setbacks. What tone does this clipped, idiomatic phrasing primarily convey?",
+ choices:[
+  "The mother’s indifference to her daughter’s struggles.",
+  "A brisk, matter-of-fact tone that captures the mother’s practical resilience and refusal to dwell on setbacks.",
+  "The author’s disapproval of her mother’s attitude.",
+  "A formal, academic tone appropriate to a legal document."
+ ], answer:1,
+ explain:"The clipped sentence structure and colloquial idiom mirror the mother's own no-nonsense persistence, reinforcing characterization through style as well as content."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"The chapter’s central symbol emerges after a boy confronts the narrator with a repeated, insistent question outside a candy store, and she reflects that she was becoming “a butterfly, becoming a caterpillar.” How does this image invert conventional symbolism?",
+ choices:[
+  "It doesn’t invert anything; it simply reuses the traditional meaning of growth and positive change.",
+  "It reverses the usual metaphor of growth and liberation, instead representing a painful loss of innocence and a new, unwelcome awareness of stigma.",
+  "It suggests she literally transformed physically after the encounter.",
+  "It is meant only as a literal description of an insect she happened to see that day."
+ ], answer:1,
+ explain:"Traditionally, caterpillar-to-butterfly symbolizes flourishing, but here the narrator moves backward — from unselfconscious freedom (butterfly) to constrained self-awareness (caterpillar) — inverting the expected trajectory to underscore the encounter's harm."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"In the candy-store scene, a boy’s repeated question eventually breaks down into a fragmented, disjointed rendering of a single word repeated with ellipses. What technique does this passage employ, and to what effect?",
+ choices:[
+  "Repetition and fragmented syntax mimic the narrator’s psychological disorientation and the way the question echoes traumatically in her mind.",
+  "A simple list is used to organize information calmly and clearly.",
+  "The repetition is used purely for comedic effect.",
+  "It is meant to demonstrate that the boy had a speech impediment."
+ ], answer:0,
+ explain:"The breakdown of the sentence into fragments enacts, on the level of syntax, the disorienting, overwhelming psychological impact of the moment on the young narrator."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"Following the candy-store encounter, the narrator concludes with a brief realization set apart as its own short paragraph: that it was the world, and how it saw her. What effect does this structural isolation create?",
+ choices:[
+  "It signals an unimportant aside that readers may skip.",
+  "The isolated, standalone sentence draws maximum emphasis to this pivotal epiphany, marking a turning point in the narrator’s self-understanding.",
+  "It functions purely as a transition between two unrelated scenes.",
+  "It is simply a formatting choice with no interpretive significance."
+ ], answer:1,
+ explain:"Setting a short, powerful realization apart from surrounding text as its own paragraph is a common technique to slow the reader down and emphasize the sentence's significance."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"At Health Conservation 21, the narrator distinguishes between the disabled students taught in the basement and the nondisabled “kids upstairs.” What is the rhetorical function of this spatial arrangement?",
+ choices:[
+  "It is incidental architectural detail carrying no symbolic weight.",
+  "The physical, vertical separation serves as a spatial metaphor for the social and educational hierarchy that marginalizes disabled students beneath their nondisabled peers.",
+  "It shows that basements are inherently inferior spaces in all contexts.",
+  "It emphasizes only that the basement was a safer location during fire drills."
+ ], answer:1,
+ explain:"The literal placement below ground level mirrors and reinforces the systemic devaluation of the disabled students' education and status within the school."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"After explaining that compulsory education has applied to all American children since 1918, the narrator isolates a short, standalone phrase clarifying that this applied to “everyone except us.” What effect does isolating this phrase create?",
+ choices:[
+  "It functions as an ironic rebuttal that undercuts the preceding claim about universal compulsory education, sharply exposing her exclusion from a supposedly universal right.",
+  "It has no relationship to the previous sentence about compulsory education.",
+  "It is used to praise the fairness of the education system.",
+  "It emphasizes that “us” refers to all American children equally."
+ ], answer:0,
+ explain:"The stark, isolated fragment creates dramatic irony by directly contradicting the seemingly universal claim just made, sharpening the reader's awareness of the students' exclusion."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"The narrator compares the emerging “disability culture” she and her peers formed to Buddhism and to “kid culture.” What does this comparison accomplish?",
+ choices:[
+  "It suggests that disability culture is fundamentally a religious practice.",
+  "It uses accessible, familiar analogies to explain an abstract concept — valuing the humanity in all people regardless of difference — making it relatable to a general reader.",
+  "It implies that only children are capable of understanding disability culture.",
+  "It is a random aside unrelated to the surrounding argument."
+ ], answer:1,
+ explain:"By comparing an unfamiliar concept to more widely understood ones, the narrator makes an abstract idea concrete and accessible for a general audience."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"At summer camp, the narrator plays Peter Pan and sings about “childhood” and her “love of independence and freedom.” What is the significance of this allusion within the larger context of the chapter?",
+ choices:[
+  "It is purely coincidental casting with no thematic resonance.",
+  "The allusion to a character famous for flight and eternal freedom reinforces the chapter’s motif of camp as the one place the narrator experiences true independence.",
+  "It suggests the narrator wished to remain a child forever, rejecting adulthood.",
+  "It functions as a critique of children’s theater as unrealistic."
+ ], answer:1,
+ explain:"Peter Pan, a character defined by flight and freedom from adult constraint, symbolically parallels the liberating experience of camp, where the narrator — unlike in her segregated everyday life — feels unconstrained."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"The narrator describes camp as feeling like what it would be “if society included us.” How does this statement function rhetorically within the chapter as a whole?",
+ choices:[
+  "It functions as an isolated compliment to the camp, with no larger implication.",
+  "It transforms camp into an extended metaphor or microcosm for an ideal, fully inclusive society, implicitly critiquing the exclusionary “real world” described elsewhere in the chapter.",
+  "It argues that camp was the only positive experience described in the entire chapter.",
+  "It suggests that all summer camps are inherently and automatically inclusive."
+ ], answer:1,
+ explain:"By presenting camp as a model of full inclusion, the narrator uses it as a rhetorical contrast to highlight, by comparison, how exclusionary the rest of society is."},
+
+{ch:"Ch. 1 — The Butterfly", stem:"In the Bible-school anecdote, the narrator’s mother declines a pastor’s offer to carry Judy down the stairs so she can join an activity, insisting it “wasn’t necessary.” The narrator later reflects, in casual, hedging language, that she came to accept herself as a burden. What does this informal diction suggest about the narrator’s tone in this reflection?",
+ choices:[
+  "It suggests total emotional indifference to the experience she is describing.",
+  "The informal, understated phrasing conveys a quiet, almost resigned vulnerability, reflecting how deeply internalized this self-perception as a “burden” had become.",
+  "It is included purely for comedic effect.",
+  "It shows the narrator is unsure whether the event actually happened."
+ ], answer:1,
+ explain:"The casual, hedging language mirrors the unconscious, gradual way children absorb and internalize the messages society sends them, making the moment feel more poignant through its very understatement."},
+
+// ---------------- CHAPTER 2: INSUBORDINATE (14) ----------------
+{ch:"Ch. 2 — Insubordinate", stem:"Chapter 2 opens in medias res, describing the narrator’s clammy, slippery grip on a pencil and her pounding heart during a high-school exam. What is the primary effect of opening the chapter with this sensory, in-the-moment detail rather than background exposition?",
+ choices:[
+  "It immediately immerses the reader in the narrator’s physical and emotional state, creating tension before any context is provided.",
+  "It confuses the reader by withholding all information about the setting indefinitely.",
+  "It is included mainly to emphasize the narrator’s handwriting skills.",
+  "It functions as irrelevant filler before the chapter’s “real” content begins."
+ ], answer:0,
+ explain:"Beginning with vivid sensory and physiological detail (clammy hands, pounding heart) draws readers into the scene emotionally before they know the full context — a classic in medias res technique."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"During the exam, the narrator’s attempt at self-reassurance (“Everyone has to get used to taking exams sometime”) is immediately answered by an inner voice countering, “Just not at fourteen.” What does this interior dialogue technique reveal?",
+ choices:[
+  "That the narrator is speaking aloud to another student in the room.",
+  "It dramatizes an internal conflict between the narrator’s attempt at composure and a more honest, anxious counter-voice, revealing psychological complexity.",
+  "That the narrator has multiple distinct personalities.",
+  "It has no bearing on characterizing the narrator’s emotional state in the scene."
+ ], answer:1,
+ explain:"Splitting the narrator's thoughts into two \"voices\" dramatizes internal conflict, revealing the gap between the composure she tries to project and her genuine anxiety."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"Sheepshead Bay is described as essentially a tight-knit “fishing village” where local kids grew up swimming in the harbor and playing baseball together. What function does this description primarily serve in the chapter?",
+ choices:[
+  "It is simply geographical trivia unrelated to the narrator’s emotional experience.",
+  "It characterizes the insular community the narrator is entering as an outsider, emphasizing her isolation despite — or because of — their closeness.",
+  "It suggests the narrator herself wished to become a fisherman.",
+  "It serves primarily as a critique of youth baseball leagues."
+ ], answer:1,
+ explain:"The imagery of a close, self-contained community underscores how much of an outsider the narrator feels, being bused in from a very different world."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"When asking a classmate for help getting to her next class, the narrator describes deliberately focusing only on the classmate’s face rather than looking around the crowded hallway, calling this “one of my tricks.” What does this detail reveal about the narrator’s coping strategies?",
+ choices:[
+  "That she simply has poor eyesight and cannot see her surroundings clearly.",
+  "That she has developed a deliberate psychological strategy to shield herself from the pain of witnessing the camaraderie she is excluded from.",
+  "That she is merely being polite to her classmate.",
+  "That she dislikes making eye contact with strangers in general."
+ ], answer:1,
+ explain:"Naming this behavior a \"trick\" reveals it as a conscious, practiced coping mechanism, subtly conveying the emotional toll of chronic social exclusion."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"The narrator describes navigating both the disabled and nondisabled social worlds as feeling like she had “lived my life speaking a different language, in a completely different culture,” and that she had to bridge the resulting “chasm.” What rhetorical device dominates this description, and to what end?",
+ choices:[
+  "An extended metaphor comparing her social alienation to linguistic and cultural barriers, emphasizing how foreign and effortful navigating the nondisabled world felt.",
+  "A literal claim that she actually spoke a different foreign language.",
+  "Simple repetition of a single word without any figurative meaning.",
+  "An analogy intended to minimize the seriousness of her experience."
+ ], answer:0,
+ explain:"The sustained comparison to language and culture (rather than a single quick simile) builds an extended metaphor capturing just how foreign and difficult crossing between her two social worlds felt."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"The narrator recalls feeling that her nondisabled peers perceived her almost as a category outside gender and romance entirely — a strikingly blunt, clinical description of dehumanization. What effect does this unusual, stark word choice create?",
+ choices:[
+  "It softens the severity of the exclusion she experienced.",
+  "Its stark, almost clinical bluntness underscores the dehumanizing way she felt perceived by her peers.",
+  "It functions primarily as a playful, humorous aside.",
+  "It refers literally to a specific medical diagnosis she received."
+ ], answer:1,
+ explain:"The unusual, jarring diction forces the reader to confront the severity of the dehumanization the narrator describes, more so than a softer synonym would."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"By contrast, the narrator describes dancing to early rock-and-roll artists at camp, calling it the only place she and her friends “weren’t self-conscious about how we looked.” How does this passage function structurally within the chapter?",
+ choices:[
+  "It serves as a purely nostalgic aside with no connection to the chapter’s main argument.",
+  "It functions as a contrasting counterexample to the exclusion described elsewhere in the chapter, reinforcing camp’s established role as a rare space of full acceptance.",
+  "It suggests the narrator preferred music to friendship in general.",
+  "It undermines the seriousness of her experiences at Sheepshead Bay High School."
+ ], answer:1,
+ explain:"By juxtaposing this joyful acceptance at camp against her isolation at high school, the narrator reinforces a comparison that runs throughout the memoir between inclusive and exclusionary environments."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"Mid-chapter, the narrator states a kind of family motto: that Heumanns are taught not to accept barriers and to keep moving forward. Given its placement in a chapter largely about painful exclusion, what purpose does this line serve?",
+ choices:[
+  "It directly contradicts everything else described in the chapter.",
+  "It functions as a thesis-like assertion of resilience and values that explains why the narrator continues pushing forward despite the setbacks just described.",
+  "It is an unrelated statement primarily about geography.",
+  "It suggests that her family generally avoids all conflict."
+ ], answer:1,
+ explain:"Placed amid accounts of hardship, this declarative \"family creed\" reframes the narrator's perseverance as an inherited value, providing thematic continuity and motivation for her ongoing efforts."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"In an anecdote where a male classmate knocks on her door only to ask if she knows another woman available to join a group date, the narrator emphasizes his complete, innocent obliviousness to how the question could wound her. Why might the author emphasize his innocence rather than portraying him as intentionally cruel?",
+ choices:[
+  "To excuse him entirely from any responsibility for the interaction.",
+  "It creates a poignant irony: his utter obliviousness makes the moment more painful than outright malice would, revealing how normalized her exclusion from romantic consideration had become.",
+  "To suggest that the narrator was not actually upset by the encounter.",
+  "It has no bearing on the emotional tone of the passage."
+ ], answer:1,
+ explain:"Cruelty intended to harm would be easier to dismiss; unintentional, \"innocent\" exclusion is more devastating because it shows how deeply ingrained and unconscious the assumption of her un-dateability really was."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"Discussing how being told she would likely never marry ultimately pushed her toward greater academic achievement, the narrator describes this outcome using a paradoxical phrase meaning something like “ironic, but not really amusing.” What does this phrasing suggest about her tone?",
+ choices:[
+  "A tone of genuine, uncomplicated amusement and lightheartedness.",
+  "A complex, ironic tone that acknowledges an unintended silver lining while simultaneously registering the underlying unfairness and pain of the situation that produced it.",
+  "Confusion about how she actually feels about the situation.",
+  "Sarcasm directed specifically at her parents."
+ ], answer:1,
+ explain:"The oxymoronic phrase captures dual, conflicting emotions — wry appreciation for an unintended benefit alongside continued awareness of the injustice that created it."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"At her graduation, the narrator’s father is described in martial terms, transformed into the battle-hardened Marine veteran he once was, as he confronts a principal about the lack of a ramp to the stage. What is the effect of this description?",
+ choices:[
+  "It is a literal, factual description of a military uniform he wore that day.",
+  "It uses martial allusion and metaphor to elevate the father’s determined posture into that of a battle-hardened warrior, emphasizing the intensity of his resolve.",
+  "It suggests the father was still an active-duty Marine at the time.",
+  "It is included primarily to criticize the father for being overly aggressive."
+ ], answer:1,
+ explain:"Invoking his wartime heroism metaphorically (rather than literally reenacting it) dramatizes the father's fierce, unwavering determination in that moment through a vivid, elevated comparison."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"Even after her father wins the argument to bring her onto the graduation stage, the principal insists she be placed behind the other students, out of clear view. What does this detail suggest about the nature of her “victory” in this scene?",
+ choices:[
+  "It shows that the victory was complete and entirely unambiguous.",
+  "It reveals that even in winning the immediate battle, she still experiences a diminished, marginalized position — illustrating how incomplete such victories often are.",
+  "It has no real bearing on how the narrator characterizes the event.",
+  "It suggests the principal ultimately came to support her fully."
+ ], answer:1,
+ explain:"Placing her behind her peers, out of view, shows that formal inclusion did not equal genuine acceptance — an important nuance the narrator wants readers to recognize."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"After finally receiving her award onstage, the narrator says “Thank you,” which is followed immediately by a short, plain sentence noting that no one actually heard her. What tone does this abrupt, understated ending to the scene create?",
+ choices:[
+  "A triumphant, unambiguously celebratory tone.",
+  "A quietly devastating, anticlimactic tone that uses restraint rather than overt emotional language to convey the scene’s underlying sadness.",
+  "A comedic tone meant to lighten the overall mood of the chapter.",
+  "An openly angry, confrontational tone directed at the reader."
+ ], answer:1,
+ explain:"Rather than describing her feelings directly, the narrator lets the plain, unembellished fact — that her gratitude went unheard — speak for itself, a restrained technique that intensifies the emotional impact through understatement."},
+
+{ch:"Ch. 2 — Insubordinate", stem:"The chapter’s title, “Insubordinate,” refers to a word a doctor writes on the narrator’s medical file after she declines to bring leg braces to a licensing exam. Why is this an apt title for the chapter as a whole?",
+ choices:[
+  "It has no real connection to the chapter’s broader events.",
+  "It encapsulates a recurring pattern in the chapter — the narrator being unfairly labeled defiant simply for asserting her own dignity and reasonable boundaries against arbitrary authority.",
+  "It refers only narrowly to her classroom behavior at Sheepshead Bay High School.",
+  "It suggests the narrator was frequently punished for misbehavior as a student."
+ ], answer:1,
+ explain:"The word \"insubordinate,\" used to describe a reasonable act of self-advocacy, exemplifies the chapter's broader critique of how authority figures pathologize disabled people's assertions of dignity as defiance."},
+
+// ---------------- CHAPTER 3: TO FIGHT OR NOT TO FIGHT (14) ----------------
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"Chapter 3 opens with a string of anxious rhetorical questions about whether the narrator has the right to publicly demand something she has never done before. What effect does this string of questions create?",
+ choices:[
+  "It suggests the narrator has already firmly decided against fighting the decision.",
+  "It dramatizes the narrator’s internal uncertainty at the outset of her decision, inviting readers to share in her deliberation before she resolves to act.",
+  "It directly addresses the reader, demanding they answer the questions in the narrator’s place.",
+  "It is a purely rhetorical flourish with no connection to her emotional state."
+ ], answer:1,
+ explain:"The barrage of unanswered questions immerses readers in the narrator's genuine uncertainty, heightening the stakes before her eventual decision to fight."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"The narrator worries that if she fails as a teacher, people might conclude that no disabled person could ever succeed in that role. What does this concern reveal about the pressures she faces?",
+ choices:[
+  "That she is being irrationally paranoid with no real basis for the fear.",
+  "That she feels the added burden of representing an entire marginalized group, meaning her individual success or failure carries disproportionate symbolic weight.",
+  "That she does not actually want to become a teacher at all.",
+  "That she secretly blames her disabled friends for encouraging her to fight."
+ ], answer:1,
+ explain:"This passage captures a common experience among members of marginalized groups: individual achievements or failures are read as representative of the whole community, adding pressure absent from more privileged peers' pursuits."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"The ACLU initially tells the narrator that being denied her license “for medical reasons” does not count as discrimination. What historical explanation does the narrator provide for why this argument could not easily be refuted at the time?",
+ choices:[
+  "The ACLU was simply too understaffed to take on her case.",
+  "The Civil Rights Act of 1964 did not include disability as a protected category, leaving her without legal precedent or an equivalent enforcement body to appeal to.",
+  "She had not actually experienced any real discrimination at all.",
+  "The Board of Education had no legal authority over teacher licensing in the first place."
+ ], answer:1,
+ explain:"The narrator explains that disability was excluded from the Civil Rights Act of 1964's protections, which is why the ACLU representative could dismiss her claim — there was no established legal framework covering her situation."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"A newspaper headline about her case pointedly notes that a person with polio could become president but not, apparently, a teacher. What rhetorical strategy does this headline employ, and to what effect?",
+ choices:[
+  "Straightforward, purely literal reporting with no rhetorical shaping.",
+  "Irony, juxtaposing an extremely high office against a comparatively modest one to expose the absurdity of denying her a teaching license.",
+  "Hyperbole, suggesting she actually intended to run for president.",
+  "A rhetorical move meant to discourage public support for her case."
+ ], answer:1,
+ explain:"By pointing out that a polio survivor could hold the nation's highest office, yet Judy is denied a comparatively modest teaching position, the headline exposes the illogic of the Board's decision through ironic juxtaposition."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"Describing the surge of public support after her case became public knowledge, the narrator uses a metaphor about a dam breaking. What does this metaphor suggest?",
+ choices:[
+  "That a literal flood occurred in her neighborhood around this time.",
+  "That pent-up public frustration and untold stories of discrimination, long suppressed, suddenly burst forth once her case created an opening for them to be expressed.",
+  "That her case was quickly forgotten by the media shortly afterward.",
+  "That going public had a purely negative, destructive consequence for her."
+ ], answer:1,
+ explain:"The image of a broken dam conveys a powerful, sudden release of pressure that had been building for a long time — here, the outpouring of public support and shared stories of discrimination."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"On a televised debate, the narrator describes going after her opponent using a simile involving a dog and a bone. What does this simile suggest about her demeanor during the interview?",
+ choices:[
+  "A timid, hesitant demeanor throughout the debate.",
+  "A fierce, relentless tenacity, unwilling to let go of her position once she engaged.",
+  "A playful, lighthearted demeanor toward her opponent.",
+  "Confusion about the topic actually being discussed."
+ ], answer:1,
+ explain:"The simile of a dog gripping a bone conveys stubborn, aggressive persistence — capturing her transformed confidence compared to her earlier nervousness about public speaking."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"During that same appearance, the narrator reflects that the fight had stopped being about her personally and had become about all the people whose stories she now represented. How does this statement connect back to the opening of Chapter 1?",
+ choices:[
+  "It has no meaningful connection to any earlier part of the memoir.",
+  "It echoes Chapter 1’s opening distinction between “I” and “we,” reinforcing the memoir’s recurring theme that the narrator sees her individual struggle as representative of a larger collective cause.",
+  "It directly contradicts the earlier claim that her story was about “we,” not “I.”",
+  "It suggests she no longer cares at all about her own teaching career."
+ ], answer:1,
+ explain:"This moment directly parallels Chapter 1's framing that the story \"wasn't actually an 'I,' it was a 'we,'\" demonstrating structural continuity — a callback — that reinforces the memoir's central thematic claim about collective struggle."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"The narrator publicly declares that society should not be allowed to offer disabled people a merely symbolic education and then discard them, using the loaded word “token” to describe that education. What is the effect of this word choice?",
+ choices:[
+  "It is a neutral, purely descriptive term carrying no critical connotation.",
+  "It carries a critical connotation, implying that the education offered to disabled people was a superficial, symbolic gesture rather than a genuine, substantive opportunity.",
+  "It refers literally to a small physical object, like a subway token.",
+  "It suggests she is genuinely grateful for the education she received."
+ ], answer:1,
+ explain:"\"Token\" here carries the connotation of a symbolic, insincere gesture meant to appear inclusive without offering real substance — sharpening her critique of the education system's hypocrisy."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"Reflecting on why “safety” was so often cited as a reason to exclude her, the narrator explicitly names this as a convenient, hard-to-challenge argument institutions fall back on. What kind of rhetorical move is the narrator making by naming this strategy directly?",
+ choices:[
+  "She is unintentionally revealing her own hidden biases.",
+  "She is engaging in meta-rhetorical analysis — explicitly naming and critiquing a manipulative rhetorical tactic used against her — which helps readers recognize this pattern elsewhere.",
+  "She is offering a genuine, sincere safety concern of her own.",
+  "She is directly contradicting her own broader argument."
+ ], answer:1,
+ explain:"By stepping outside the narrative to directly analyze how \"safety\" rhetoric functions to disguise discrimination as reasonable caution, the narrator equips readers to recognize this same rhetorical maneuver elsewhere in the text and in society."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"Encountering the federal judge presiding over her case for the first time, the narrator describes her presence as consuming the room and states flatly that she seemed “godlike.” What is the effect of this hyperbolic description?",
+ choices:[
+  "It is meant entirely literally, suggesting the narrator believed the judge was divine.",
+  "The hyperbole conveys the profound, almost reverential sense of awe and hope the narrator felt encountering a figure of formidable, history-making authority at a pivotal moment.",
+  "It undermines the seriousness of the courtroom scene being described.",
+  "It is intended ironically, as a way of mocking the judge."
+ ], answer:1,
+ explain:"The exaggerated language captures the emotional intensity of the moment rather than a literal claim, conveying the narrator's overwhelming sense of hope and awe."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"The narrator explicitly connects her case to the civil rights movement by detailing the presiding judge’s history as a pioneering civil rights lawyer, including her role in Brown v. Board of Education. What does this historical detail add to the narrative at this point?",
+ choices:[
+  "It is unrelated biographical trivia with no connection to the narrator’s own case.",
+  "It reinforces the memoir’s recurring analogy between the disability rights movement and the African American civil rights movement, deepening the symbolic resonance of the moment.",
+  "It suggests the judge was biased against the school board for unrelated reasons.",
+  "It functions as a criticism of the civil rights movement for ignoring disability issues."
+ ], answer:1,
+ explain:"By tying the judge's civil rights legacy directly to her own case, the narrator makes explicit the analogy between movements that has been implied throughout the memoir, deepening its symbolic resonance."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"After the case resolves quickly, a third medical examiner simply apologizes, saying the whole ordeal “never should have happened.” How does this brief scene contrast with the earlier examination scenes in Chapter 2?",
+ choices:[
+  "It shows essentially no meaningful difference from the earlier exam scenes.",
+  "It sharply contrasts the earlier examiners’ hostility and invasive interrogation with this examiner’s simple acknowledgment of wrongdoing, highlighting how arbitrary the earlier mistreatment had been.",
+  "It suggests the third doctor was actually even more hostile than the first two.",
+  "It shows that the entire licensing process had been fair and reasonable from the very start."
+ ], answer:1,
+ explain:"The stark brevity and simplicity of this final exam, compared to the drawn-out, humiliating ordeal in Chapter 2, retroactively underscores just how unnecessary and unjust the earlier treatment had been."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"Describing the aftermath of winning her legal case, the narrator explicitly names the “perfect,” tidy ending readers might expect — and then states plainly that this is not how it went. What does this self-aware narrative commentary accomplish?",
+ choices:[
+  "It signals that the narrator is about to abandon telling the story entirely.",
+  "It directly acknowledges and subverts the reader’s expectation of a tidy, triumphant conclusion, preparing them for the more complicated reality that followed.",
+  "It suggests that the entire preceding account was fictionalized for effect.",
+  "It has no real bearing on shaping the reader’s expectations going forward."
+ ], answer:1,
+ explain:"By explicitly naming and then denying the conventional \"happily ever after\" narrative arc, the author manages reader expectations and emphasizes the ongoing, unresolved nature of systemic discrimination even after individual legal victories."},
+
+{ch:"Ch. 3 — To Fight or Not to Fight", stem:"The chapter closes with two parallel, sequential aphoristic statements: that the first thing you need is belief in yourself and knowledge of your rights, and the next thing you need is a group of friends to fight back with. What rhetorical function do these closing lines serve?",
+ choices:[
+  "They are unrelated concluding remarks with no real connection to the chapter’s argument.",
+  "Their parallel structure and instructive tone crystallize the chapter’s central thesis into a memorable statement about the two-part foundation of successful activism: self-belief and community.",
+  "They suggest that friendship alone, without any self-belief, is sufficient for social change.",
+  "They directly contradict the emphasis on collective action established back in Chapter 1."
+ ], answer:1,
+ explain:"The parallel \"first thing... next thing\" structure distills the narrative's argument into a clear, memorable formula, functioning as a thesis-like closing statement that ties together the individual (self-belief) and collective (community) themes developed throughout the preceding chapters."}
+];
+
+/* =========================================================
+   APP LOGIC
+   ========================================================= */
+const CHAPTERS = ["Prologue","Ch. 1 — The Butterfly","Ch. 2 — Insubordinate","Ch. 3 — To Fight or Not to Fight"];
+QUESTIONS.forEach((q,i)=>q.id=i);
+
+let state = {
+  pool: [],
+  order: [],
+  idx: 0,
+  answers: {},     // qid -> chosen index (post-shuffle-of-choices, stored as text to be shuffle-agnostic)
+  choiceMaps: {},   // qid -> array mapping displayed position -> original index
+  instant: true,
+  finished: false
+};
+
+function $(sel){return document.querySelector(sel);}
+function $all(sel){return Array.from(document.querySelectorAll(sel));}
+
+// ---- theme ----
+(function initTheme(){
+  let saved = null;
+  try{ saved = localStorage.getItem('bh_theme'); }catch(e){}
+  if(saved) document.documentElement.setAttribute('data-theme', saved);
+  $('#themeToggle').addEventListener('click', ()=>{
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : (cur === 'light' ? null : (matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark'));
+    if(next) document.documentElement.setAttribute('data-theme', next);
+    else document.documentElement.removeAttribute('data-theme');
+    try{ localStorage.setItem('bh_theme', next || ''); }catch(e){}
+  });
+})();
+
+// ---- section chips ----
+let selectedChapters = new Set(CHAPTERS);
+function renderSectionPicker(){
+  const wrap = $('#sectionPick');
+  wrap.innerHTML = '';
+  CHAPTERS.forEach(ch=>{
+    const n = QUESTIONS.filter(q=>q.ch===ch).length;
+    const chip = document.createElement('span');
+    chip.className = 'chip active';
+    chip.textContent = ch.replace('Ch. ','Ch.') + ' (' + n + ')';
+    chip.dataset.ch = ch;
+    chip.addEventListener('click', ()=>{
+      if(selectedChapters.has(ch)){
+        if(selectedChapters.size===1) return; // keep at least one
+        selectedChapters.delete(ch);
+        chip.classList.remove('active');
+      } else {
+        selectedChapters.add(ch);
+        chip.classList.add('active');
+      }
+    });
+    wrap.appendChild(chip);
+  });
+}
+renderSectionPicker();
+
+// ---- start ----
+$('#startBtn').addEventListener('click', ()=>{
+  state.instant = $('#instantFeedback').checked;
+  const doShuffleQ = $('#shuffleQ').checked;
+  const doShuffleC = $('#shuffleC').checked;
+
+  state.pool = QUESTIONS.filter(q=>selectedChapters.has(q.ch));
+  state.order = state.pool.map(q=>q.id);
+  if(doShuffleQ) shuffle(state.order);
+
+  state.choiceMaps = {};
+  state.pool.forEach(q=>{
+    let map = [0,1,2,3];
+    if(doShuffleC) shuffle(map);
+    state.choiceMaps[q.id] = map;
+  });
+
+  state.idx = 0;
+  state.answers = {};
+  state.finished = false;
+
+  $('#startScreen').classList.add('hidden');
+  $('#resultsScreen').classList.add('hidden');
+  $('#reviewScreen').classList.add('hidden');
+  $('#quizScreen').classList.remove('hidden');
+  renderQuestion();
+});
+
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+}
+
+function qById(id){ return QUESTIONS.find(q=>q.id===id); }
+
+function renderQuestion(){
+  const total = state.order.length;
+  const qid = state.order[state.idx];
+  const q = qById(qid);
+  const map = state.choiceMaps[qid];
+
+  $('#qCounter').textContent = 'Question ' + (state.idx+1) + ' of ' + total;
+  const scored = Object.keys(state.answers).filter(k=>state.answers[k]===qById(+k).answer).length;
+  $('#qScoreLive').textContent = 'Score: ' + scored;
+  $('#progressBar').style.width = ((state.idx)/total*100) + '%';
+  $('#chapterTag').textContent = q.ch;
+  $('#stemText').textContent = q.stem;
+
+  const wrap = $('#choicesWrap');
+  wrap.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  const alreadyAnswered = state.answers.hasOwnProperty(qid);
+
+  map.forEach((origIdx, pos)=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = '<span class="letter">'+letters[pos]+'</span><span>'+q.choices[origIdx]+'</span>';
+    btn.dataset.orig = origIdx;
+
+    if(alreadyAnswered){
+      const chosen = state.answers[qid];
+      applyChoiceStyle(btn, origIdx, chosen, q.answer, true);
+    }
+
+    btn.addEventListener('click', ()=>{
+      if(state.answers.hasOwnProperty(qid)) return;
+      state.answers[qid] = origIdx;
+      const scoredNow = Object.keys(state.answers).filter(k=>state.answers[k]===qById(+k).answer).length;
+      $('#qScoreLive').textContent = 'Score: ' + scoredNow;
+
+      $all('.choice', wrap).forEach(b=>{
+        applyChoiceStyle(b, +b.dataset.orig, origIdx, q.answer, state.instant);
+      });
+
+      if(state.instant){
+        const box = $('#explainBox');
+        box.innerHTML = '<b>' + (origIdx===q.answer ? 'Correct. ' : 'Not quite. ') + '</b>' + q.explain;
+        box.classList.add('show');
+      }
+      $('#nextBtn').disabled = false;
+    });
+
+    wrap.appendChild(btn);
+  });
+
+  const box = $('#explainBox');
+  box.classList.remove('show');
+  box.innerHTML = '';
+  if(alreadyAnswered && state.instant){
+    box.innerHTML = '<b>' + (state.answers[qid]===q.answer ? 'Correct. ' : 'Not quite. ') + '</b>' + q.explain;
+    box.classList.add('show');
+  }
+
+  $('#prevBtn').disabled = state.idx===0;
+  $('#nextBtn').disabled = !alreadyAnswered;
+  $('#nextBtn').textContent = state.idx === total-1 ? 'See Results →' : 'Next →';
+}
+
+function applyChoiceStyle(btn, origIdx, chosenIdx, correctIdx, reveal){
+  btn.classList.add('disabled');
+  btn.classList.remove('selected','correct','wrong','dim');
+  if(origIdx === chosenIdx) btn.classList.add('selected');
+  if(reveal){
+    if(origIdx === correctIdx) btn.classList.add('correct');
+    else if(origIdx === chosenIdx) btn.classList.add('wrong');
+    else btn.classList.add('dim');
+  }
+}
+
+$('#prevBtn').addEventListener('click', ()=>{
+  if(state.idx>0){ state.idx--; renderQuestion(); }
+});
+$('#nextBtn').addEventListener('click', ()=>{
+  if(state.idx < state.order.length-1){
+    state.idx++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+});
+
+function showResults(){
+  $('#quizScreen').classList.add('hidden');
+  $('#resultsScreen').classList.remove('hidden');
+  $('#reviewScreen').classList.remove('hidden');
+
+  const total = state.order.length;
+  const correct = Object.keys(state.answers).filter(k=>state.answers[k]===qById(+k).answer).length;
+  const pct = Math.round(correct/total*100);
+  $('#scorePct').textContent = pct + '%';
+  $('#scoreDetail').textContent = correct + ' of ' + total + ' correct';
+
+  const chart = $('#barChart');
+  chart.innerHTML = '';
+  CHAPTERS.forEach(ch=>{
+    const qs = state.pool.filter(q=>q.ch===ch);
+    if(!qs.length) return;
+    const c = qs.filter(q=>state.answers[q.id]===q.answer).length;
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = '<div class="bar-label"><span>'+ch+'</span><span>'+c+'/'+qs.length+'</span></div>'+
+      '<div class="bar-track"><div class="bar-fill" style="width:'+(c/qs.length*100)+'%"></div></div>';
+    chart.appendChild(row);
+  });
+
+  renderReview('all');
+  state.finished = true;
+}
+
+function renderReview(filter){
+  const list = $('#reviewList');
+  list.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  state.order.forEach((qid,i)=>{
+    const q = qById(qid);
+    const chosen = state.answers[qid];
+    const isCorrect = chosen === q.answer;
+    if(filter==='wrong' && isCorrect) return;
+    if(filter==='correct' && !isCorrect) return;
+
+    const item = document.createElement('div');
+    item.className = 'review-item';
+    const chosenText = (chosen!==undefined) ? q.choices[chosen] : '(no answer)';
+    const correctText = q.choices[q.answer];
+    item.innerHTML =
+      '<span class="review-tag '+(isCorrect?'ok':'no')+'">'+(isCorrect?'Correct':'Missed')+'</span>'+
+      '<span style="font-size:12px;color:var(--ink-soft);">'+q.ch+' · Q'+(i+1)+'</span>'+
+      '<p class="review-q">'+q.stem+'</p>'+
+      '<div class="review-ans"><b>Your answer:</b> '+chosenText+'</div>'+
+      (isCorrect ? '' : '<div class="review-ans"><b>Correct answer:</b> '+correctText+'</div>')+
+      '<div class="review-explain">'+q.explain+'</div>';
+    list.appendChild(item);
+  });
+  if(!list.children.length){
+    list.innerHTML = '<p style="color:var(--ink-soft);font-size:14px;">Nothing to show for this filter.</p>';
+  }
+}
+
+$all('.filter-row .chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    $all('.filter-row .chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    renderReview(chip.dataset.filter);
+  });
+});
+
+$('#retakeBtn').addEventListener('click', ()=>{
+  $('#resultsScreen').classList.add('hidden');
+  $('#reviewScreen').classList.add('hidden');
+  $('#quizScreen').classList.remove('hidden');
+  state.idx = 0;
+  state.answers = {};
+  shuffle(state.order);
+  renderQuestion();
+});
+$('#restartBtn').addEventListener('click', ()=>{
+  $('#resultsScreen').classList.add('hidden');
+  $('#reviewScreen').classList.add('hidden');
+  $('#startScreen').classList.remove('hidden');
+});
+</script>
+</body>
+</html>
